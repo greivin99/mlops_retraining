@@ -19,6 +19,7 @@ df = pd.read_csv("data/data.csv")
 df["diagnosis"] = df["diagnosis"].apply(lambda x: 1 if x == "M" else 0)
 y = df["diagnosis"]
 X = df.drop(["id", "Unnamed: 32", "diagnosis"], axis=1)
+df = df.dropna()
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # --------------------------------------------
@@ -34,7 +35,6 @@ pipeline = Pipeline(steps=[
 # --------------------------------------------
 param_grid_logreg = {
     'classifier__C': [0.1, 1, 10, 100],
-    'classifier__penalty': ['l1', 'l2']
 }
 
 # --------------------------------------------
@@ -72,3 +72,5 @@ with open("metrics.txt", 'w') as outfile:
 # --------------------------------------------
 model_filename = 'model/logistic_regression_model.pkl'
 joblib.dump(best_model, model_filename)
+
+print("----- The retraining has finished! -----")

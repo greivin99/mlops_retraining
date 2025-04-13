@@ -10,5 +10,6 @@ python-dateutil
 pytz
 scikit-learn
 scipy
-joblib
 fastapi
+uvicorn
+streamlit

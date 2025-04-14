@@ -11,7 +11,7 @@ import joblib
 # --------------------------------------------
 # READ THE DATASET
 # --------------------------------------------
-df = pd.read_csv("../Trabajo practico 4/Data/data.csv")
+df = pd.read_csv("../mlops_retraining/Data/data.csv")
 
 # --------------------------------------------
 # PREPROCESSING
